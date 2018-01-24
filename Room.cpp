@@ -22,6 +22,20 @@ public:
     }
 };
 
+class Precious: public Stuff
+{
+    std::string name_good_prefix;
+
+public:
+    Precious()
+    {
+        srand(time(NULL));
+        int index = rand() % 3;
+        this->name_good_prefix = good_prefix[index];
+        std::cout<<name_good_prefix<<std::endl;
+    }
+};
+
 class Room
 {
     bool room_open = true;
@@ -32,7 +46,7 @@ class Room
 
 int main(int argc, char const *argv[]) {
 
-    Stuff S;
+    Precious S;
     //S.Print();
 
     for(const auto &v: thing)
