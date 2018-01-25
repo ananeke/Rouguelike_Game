@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "MAP.h"
 #include "PLAYER.h"
+#include "LOGO.h"
 
 int main(int argc, char* argv[])
 {
@@ -19,6 +20,7 @@ int main(int argc, char* argv[])
     do
     {
         system("cls");
+        Draw_Logo();
         M1.UpdateMap(h1,list_monsters);
         M1.DrawMap();
         std::cout<<"Gdzie chcesz isc? "<<std::endl;

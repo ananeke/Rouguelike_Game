@@ -2,7 +2,7 @@
 #define MAP_H
 #include <iostream>
 #include "PLAYER.h"
-#define MAPSIZE 24
+#define MAPSIZE 12
 
 using namespace std;
 
@@ -38,11 +38,11 @@ public:
                 }
                 else if (map[i][j] == 1)
                 {
-                    cout << 'G';
+                    cout << 'H';
                 }
                 else if (map[i][j] == 2)
                 {
-                    cout << 'P';
+                    cout << 'M';
                 }
             }
         }
