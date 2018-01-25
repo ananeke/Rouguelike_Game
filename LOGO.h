@@ -4,35 +4,18 @@
 #include <fstream>
 #include <string>
 
-void Draw_Logo()
+void DrawImage(std::string img_name)
 {
-    std::fstream logo;
-    logo.open("logo.txt");
+    std::fstream image;
+    image.open(img_name);
     std::string line;
 
     do
     {
-        std::getline(logo, line);
+        std::getline(image, line);
         std::cout << line << "\n";
     } while (line !="");
 
-    logo.close();
+    image.close();
 }
-
-void Draw_Hero()
-{
-    std::fstream hero;
-    hero.open("Hero.txt");
-    std::string line;
-
-    do
-    {
-        std::getline(hero, line);
-        std::cout << line << "\n";
-    } while (line !="");
-
-    hero.close();
-}
-
-
 #endif

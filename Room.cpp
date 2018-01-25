@@ -16,7 +16,6 @@ public:
     Stuff()
     {
         //randomowe wybieranie nagrody
-        srand(time(NULL));
         int index = rand() % 6;
         this->name = thing[index];
     }
