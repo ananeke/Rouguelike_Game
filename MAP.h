@@ -92,7 +92,7 @@ public:
             {
                 map[var->position[0]][var->position[1]] = 0;
 
-                if ((hero.position[0] == var->position[0])&&(hero.position[1] == var->position[1]))
+                if (((hero.position[0] == var->position[0])&&(hero.position[1] == var->position[1]))||((var->position[0] == hero.position[0])&&(var->position[1] == hero.position[1])))
                 {
                     StartBattle(hero, list);
                 }
