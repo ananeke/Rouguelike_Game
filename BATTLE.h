@@ -17,7 +17,7 @@ void StartBattle(Hero &hero, std::list<Monster> &list)
         {
             if ((hero.position[0] == var->position[0])&&(hero.position[1] == var->position[1]))
             {
-                if (var->hp > 0)
+                if ((var->hp > 0)|(hero.hp >0))
                 {
                     std::cout<<"\n Pozostale zycie potwora: "<<var->hp<<std::endl<<std::endl;
                     std::cout<<"\n Pozostale zycie bohatera: "<<hero.hp<<std::endl<<std::endl;
@@ -47,19 +47,35 @@ void StartBattle(Hero &hero, std::list<Monster> &list)
                         return;
                     case 'g':
                         system("cls");
-
                         DrawImage("Hero.txt");
                         std::cout<<"\n\n Zabijasz potwora!\n";
                         Sleep(5000);
                         win = true;
                         list.erase(var);
                         break;
+                        return;
                     default:
                         std::cout<<"Zły klawisz!!!\n Za kare potwor bije cie za 5 punktow!\n";
                         hero.hp -= 5;
                         break;
+                        return;
                     }
                 }
+                if (var->hp <= 0)
+                {
+                    system("cls");
+                    DrawImage("Hero.txt");
+                    Sleep(5000);
+                    return;
+                }
+                if (hero.hp <= 0)
+                {
+                    system("cls");
+                    DrawImage("Monster_Wins.txt");
+                    Sleep(5000);
+                    return;
+                }
+
             }
         }
     }
