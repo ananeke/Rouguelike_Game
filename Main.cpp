@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <cstdlib>
+#include <windows.h>
 #include <ctime>
 #include "MAP.h"
 #include "PLAYER.h"
@@ -8,6 +9,12 @@
 
 int main(int argc, char* argv[])
 {
+    HWND console = GetConsoleWindow();
+    RECT r;
+    GetWindowRect(console, &r);
+
+    MoveWindow(console, r.left, r.top, 800, 800, TRUE);
+
     srand(time(NULL));
     Map M1;
     Hero h1(0,0);

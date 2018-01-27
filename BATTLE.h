@@ -2,9 +2,11 @@
 #define BATTLE_H
 #include <iostream>
 #include <windows.h>
+#include <ctime>
 #include <list>
 #include "PLAYER.h"
 #include "LOGO.h"
+#include "MAP.h"
 
 void StartBattle(Hero &hero, std::list<Monster> &list)
 {
@@ -44,35 +46,40 @@ void StartBattle(Hero &hero, std::list<Monster> &list)
                             list.erase(var);
                         }
                         break;
-                        return;
                     case 'g':
-                        system("cls");
-                        DrawImage("Hero.txt");
-                        std::cout<<"\n\n Zabijasz potwora!\n";
-                        Sleep(5000);
-                        win = true;
-                        list.erase(var);
+                        if (rand() % 3 == 1)
+                        {
+                            win = true;
+                            var->hp = 0;
+                        }
+                        else
+                        {
+                            std::cout<<"\n\n nie zabijasz potwora!\n";
+                            Sleep(2000);
+                        }
                         break;
-                        return;
+                        //return;
                     default:
                         std::cout<<"Zły klawisz!!!\n Za kare potwor bije cie za 5 punktow!\n";
                         hero.hp -= 5;
                         break;
-                        return;
+                        //return;
                     }
                 }
                 if (var->hp <= 0)
                 {
                     system("cls");
+                    list.erase(var);
                     DrawImage("Hero.txt");
-                    Sleep(5000);
+                    std::cout<<"\n\n Zabiles potwora!\n";
+                    Sleep(2000);
                     return;
                 }
                 if (hero.hp <= 0)
                 {
                     system("cls");
                     DrawImage("Monster_Wins.txt");
-                    Sleep(5000);
+                    Sleep(2000);
                     return;
                 }
 

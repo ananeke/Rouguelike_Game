@@ -11,9 +11,9 @@ using namespace std;
 
 class Map
 {
+public:
     int map[MAPSIZE][MAPSIZE];
 
-public:
     Map()
     {
         for (int i = 0; i < MAPSIZE; ++i)
@@ -95,6 +95,7 @@ public:
                 if (((hero.position[0] == var->position[0])&&(hero.position[1] == var->position[1]))|((var->position[0] == hero.position[0])&&(var->position[1] == hero.position[1])))
                 {
                     StartBattle(hero, list);
+                    map[hero.position[0]][hero.position[1]] = 0;
                     return;
                 }
                 else
