@@ -2,7 +2,7 @@
 
 After starting the game, two console windows appear on the screen, on one "the map" is drawn, and the description of events on the other.
 The map is composed of room type () objects, they can be open or closed, it will be generated randomly, with the option of moving through the map to the next level. If the generated map will not be able to pass, it will be rejected by the checking algorithm and a new map will be generated. The player starts from the top left corner and ends at the bottom right. Move the hero by pressing the keys W, S, A, D
-Map display prototype (without selected rooms):
+Map display prototype (without selected rooms)
 
 ![img1](projectDocumentation/First_look_of_game.jpg)
  
