@@ -4,7 +4,7 @@ After starting the game, two console windows appear on the screen, on one "the m
 The map is composed of room type () objects, they can be open or closed, it will be generated randomly, with the option of moving through the map to the next level. If the generated map will not be able to pass, it will be rejected by the checking algorithm and a new map will be generated. The player starts from the top left corner and ends at the bottom right. Move the hero by pressing the keys W, S, A, D
 Map display prototype (without selected rooms):
 
-(Project_Documentation/First_look_of_game.jpg)
+(projectDocumentation/First_look_of_game.jpg)
  
  
 Open rooms may contain treasure chests: weapons, armor.
@@ -13,4 +13,4 @@ about stopping / removing things from the backpack and replacing them with items
 The map also moves enemies whose hero must overcome using artifacts found along the way. The fight comes when the hero and the enemy are in the same open room. The number of enemies is random and scaled to the appropriate level of the map on which the player is located. Enemies move randomly relative to the hero's position.
 The goal of the game is to reach the highest level of the "dungeon".
 
-(Project_Documentation/Battle_with_monster.jpg)
+(projectDocumentation/Battle_with_monster.jpg)
