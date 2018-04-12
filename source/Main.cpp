@@ -3,9 +3,9 @@
 #include <cstdlib>
 #include <windows.h>
 #include <ctime>
-#include "MAP.h"
-#include "PLAYER.h"
-#include "LOGO.h"
+#include "map.h"
+#include "player.h"
+#include "logo.h"
 
 int main(int argc, char* argv[])
 {

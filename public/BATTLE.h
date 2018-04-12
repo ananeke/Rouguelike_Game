@@ -4,9 +4,9 @@
 #include <windows.h>
 #include <ctime>
 #include <list>
-#include "PLAYER.h"
-#include "LOGO.h"
-#include "MAP.h"
+#include "player.h"
+#include "logo.h"
+#include "map.h"
 
 void StartBattle(Hero &hero, std::list<Monster> &list)
 {

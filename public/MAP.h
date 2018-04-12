@@ -3,8 +3,8 @@
 #include <iostream>
 #include <ctime>
 #include <list>
-#include "PLAYER.h"
-#include "BATTLE.h"
+#include "player.h"
+#include "battle.h"
 #define MAPSIZE 12
 
 using namespace std;

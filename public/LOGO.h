@@ -7,7 +7,9 @@
 void DrawImage(std::string img_name)
 {
     std::fstream image;
-    image.open(img_name);
+	std::string nameGraphic = "../graphics/";
+	nameGraphic.append(img_name);
+    image.open(nameGraphic);
     std::string line;
 
     do
