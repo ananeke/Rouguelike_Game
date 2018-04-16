@@ -43,7 +43,7 @@ class Room
 };
 
 
-int main(int argc, char const *argv[]) {
+/*int main(int argc, char const *argv[]) {
 
     Precious S;
     //S.Print();
@@ -52,4 +52,4 @@ int main(int argc, char const *argv[]) {
         std::cout << v << " ";
     std::cout << std::endl;
     return 0;
-}
+}*/
