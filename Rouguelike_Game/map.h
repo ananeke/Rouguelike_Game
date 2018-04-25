@@ -4,32 +4,26 @@
 #include <ctime>
 #include <list>
 #include <vector>
-#include "player.h"
-#include "battle.h"
+#include "actor.h"
+//#include "battle.h"
+#include "room.h"
 #define MAPSIZE 10
 
 using namespace std;
 
 class Map
 {
-	vector<vector<int>> map;
+	vector<vector<Room*>> map;
 public:
 	Map()
 	{
 		for (int i = 0; i < MAPSIZE; ++i)
 		{
-			vector<int> temp;
+			vector<Room*> temp;
 			for (int j = 0; j < MAPSIZE; ++j)
-				temp.push_back(0);
+				temp.push_back(new Room);
 			map.push_back(temp);
 		}
-		/*  wyœwietlanie mapy zer!!!
-		for (int i = 0; i < map.size(); ++i) {     
-			for (int j = 0; j < map[i].size(); ++j) {
-				cout << map[i][j];
-			}
-			cout << endl;
-		}*/
 	}
 
 	void DrawMap()
@@ -38,23 +32,23 @@ public:
 		{
 			for (int j = 0; j < map[i].size(); ++j)
 			{
-				if (map[i][j] == 0 && j == map[i].size() - 1)
-					cout << '_' << '|' << endl;
-				else if (map[i][j] == 0)
-					cout << '_';
-				else if (map[i][j] == 1 && j == map[i].size() - 1)
+				if ((map[i][j]->actor->getActorType() == HERO) && (i == map[i][j]->actor->getPositionX()) && (j == map[i][j]->actor->getPositionY()) && (j == map[i].size() - 1))
 					cout << 'H' << endl;
-				else if (map[i][j] == 1)
+				else if (map[i][j]->actor->getActorType() == HERO && i == map[i][j]->actor->getPositionX() && j == map[i][j]->actor->getPositionY())
 					cout << 'H';
-				else if (map[i][j] == 2 && j == map[i].size() - 1)
+				else if (map[i][j]->actor->getActorType() != HERO && j == map[i].size() - 1)
 					cout << 'M' << endl;
-				else if (map[i][j] == 2)
+				else if (map[i][j]->actor->getActorType() != HERO)
 					cout << 'M';
+				else if (map[i][j]->isOpen && j == map[i].size() - 1)
+					cout << '_' << '|' << endl;
+				else if (map[i][j]->isOpen)
+					cout << '_';
 			}
 		}
 	}
 
-	void UpdateMap(Hero &hero, list<Monster> &list)
+	/*void UpdateMap(Hero &hero, list<Monster> &list)
 	{
 		//map[hero.position[0]][hero.position[1]] = 1;
 		map[2][3] = 1;
@@ -133,7 +127,7 @@ public:
 				}
 			}
 		}
-	}
+	}*/
 };
 
 #endif

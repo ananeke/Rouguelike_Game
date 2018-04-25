@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <ctime>
 #include <list>
-#include "player.h"
+#include "actor.h"
 #include "logo.h"
 #include "map.h"
 

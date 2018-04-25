@@ -3,7 +3,8 @@
 #include <iostream>
 #include <array>
 #include <string>
-#include "enemytype.h"
+#include "actortype.h"
+#include "backpack.h"
 
 using namespace std;
 
@@ -13,57 +14,31 @@ private:
 	unsigned int life;
 	unsigned int strength;
 	string actorName;
-	int type;
-	Item item;
+	int actorType;
+	int positionX;
+	int positionY;
+	
 public:	
 	bool isExists;
+	BackPack backPack;
 
 	//getters
 	unsigned int getLife() {return life;}
     unsigned int getStrength() {return strength;}
 	string getActorName(){return actorName;}
-	int getType() {return type;}
-	Item getItems() {return item;}
+	int getActorType() {return actorType;}
+	int getPositionX() {return positionX;}
+	int getPositionY() {return positionY;}
 	//setters
 	void setLife(unsigned int life) {this->life = life;}
-	void setLife(unsigned int strength) {this->strength = strength;}
-	void setActorName() {this->actorName = actorName;}
-	void setType() {this->type = type;}
-	void setItem() {this->item = item;}
+	void setStrength(unsigned int strength) {this->strength = strength;}
+	void setActorName(string actorName) {this->actorName = actorName;}
+	void setActorType(int actorType) {this->actorType = actorType;}
+	void setPositionX(int positionX) { this->positionX = positionX; }
+	void setPositionY(int positionY) { this->positionY = positionY; }
 
 	virtual void Attack() = 0;
+	virtual void Move() = 0;
+	virtual void showBackPack() = 0;
 };
-
-
-
-
-
-class Hero
-{
-public:
-	std::array<int, 10> back_pack;
-	int points = 0;
-	int position[2];
-	int hp = 20;
-
-	Hero(int x, int y)
-	{
-		position[0] = x; //kolumny
-		position[1] = y; //wiersze
-	}
-};
-
-class Monster
-{
-public:
-	int position[2];
-	int hp = 10;
-
-	Monster(int x, int y)
-	{
-		position[0] = x;
-		position[1] = y;
-	}
-};
-
 #endif

@@ -1,0 +1,6 @@
+Pre-Alpha [v0.0.0.1.25-04-18]
+	- implemented polymorphism for Actor() class
+	- added new class Room()
+	- changed int matrix to vector matrix of Room() objects
+	- updated DrawMap() method algorithm
+	

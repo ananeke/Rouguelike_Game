@@ -149,7 +149,8 @@
   <ItemGroup>
     <ClInclude Include="backpack.h" />
     <ClInclude Include="battle.h" />
-    <ClInclude Include="enemytype.h" />
+    <ClInclude Include="actortype.h" />
+    <ClInclude Include="hero.h" />
     <ClInclude Include="logo.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="actor.h" />

@@ -39,12 +39,6 @@ public:
 	}
 };
 
-class Room
-{
-	bool room_open = true;
-	bool road_open = false;
-
-};
 
 
 /*int main(int argc, char const *argv[]) {
