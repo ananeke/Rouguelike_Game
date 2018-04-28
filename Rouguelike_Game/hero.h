@@ -1,9 +1,8 @@
-#ifndef HERO_H
-#define HERO_H
-#include <iostream>
-#include <string>
+#pragma once
 #include "actor.h"
 #include "actortype.h"
+#include <string>
+
 
 using namespace std;
 
@@ -11,34 +10,7 @@ class Hero : public Actor
 {
 public:
 
-	Hero(string actorName, unsigned int life = 20, unsigned int strength = 5, int actorType = HERO)
-	{
-		setActorName(actorName);
-		setPositionX(0);
-		setPositionY(0);
-		setLife(life);
-		setStrength(strength);
-		setActorType(actorType);
-	}
-	
+	Hero(string, unsigned int = 20, unsigned int = 5, int = HERO);
 	void Attack();
-	void Move();
 	void showBackPack();
-
 };
-
-void Hero::Attack()
-{
-
-}
-
-void Hero::Move()
-{
-
-}
-
-void Hero::showBackPack()
-{
-
-}
-#endif

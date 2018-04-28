@@ -1,52 +1,26 @@
-#ifndef MAP_H
-#define MAP_H
+#pragma once
+#include "actor.h"
+#include "room.h"
 #include <iostream>
 #include <ctime>
 #include <list>
 #include <vector>
-#include "actor.h"
-//#include "battle.h"
-#include "room.h"
+
 #define MAPSIZE 10
 
 using namespace std;
-
+class Room;
+class Actor;
 class Map
 {
-	vector<vector<Room*>> map;
 public:
-	Map()
-	{
-		for (int i = 0; i < MAPSIZE; ++i)
-		{
-			vector<Room*> temp;
-			for (int j = 0; j < MAPSIZE; ++j)
-				temp.push_back(new Room);
-			map.push_back(temp);
-		}
-	}
+	vector<vector<Room*>> map;
 
-	void DrawMap()
-	{
-		for (int i = 0; i < map.size(); ++i)
-		{
-			for (int j = 0; j < map[i].size(); ++j)
-			{
-				if ((map[i][j]->actor->getActorType() == HERO) && (i == map[i][j]->actor->getPositionX()) && (j == map[i][j]->actor->getPositionY()) && (j == map[i].size() - 1))
-					cout << 'H' << endl;
-				else if (map[i][j]->actor->getActorType() == HERO && i == map[i][j]->actor->getPositionX() && j == map[i][j]->actor->getPositionY())
-					cout << 'H';
-				else if (map[i][j]->actor->getActorType() != HERO && j == map[i].size() - 1)
-					cout << 'M' << endl;
-				else if (map[i][j]->actor->getActorType() != HERO)
-					cout << 'M';
-				else if (map[i][j]->isOpen && j == map[i].size() - 1)
-					cout << '_' << '|' << endl;
-				else if (map[i][j]->isOpen)
-					cout << '_';
-			}
-		}
-	}
+	Map();
+
+	void drawMap();
+	void actorMove(char, Actor*);
+
 
 	/*void UpdateMap(Hero &hero, list<Monster> &list)
 	{
@@ -63,21 +37,7 @@ public:
 	void MoveHero(Hero &hero, char &move)
 	{
 		//map[hero.position[0]][hero.position[1]] = 0;
-		switch (move)
-		{
-		case 'w':
-			hero.position[0] -= 1;
-			break;
-		case 'd':
-			hero.position[1] += 1;
-			break;
-		case 's':
-			hero.position[0] += 1;
-			break;
-		case 'a':
-			hero.position[1] -= 1;
-			break;
-		}
+		
 		if (hero.position[0] >= MAPSIZE)
 			hero.position[0] = MAPSIZE - 1;
 		else if (hero.position[1] >= MAPSIZE)
@@ -130,4 +90,3 @@ public:
 	}*/
 };
 
-#endif

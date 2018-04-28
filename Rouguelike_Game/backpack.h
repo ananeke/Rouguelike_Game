@@ -1,5 +1,5 @@
-#ifndef BACKPACK_H
-#define BACKPACK_H
+#pragma once
+
 #include <iostream>
 #include <list>
 //#include "item.h"
@@ -11,10 +11,8 @@ class BackPack
 	unsigned int capacity;
 public:
 	//list<Item> itemList;
-	unsigned int getCapacity() { return capacity; }
-	void setCapacity(unsigned int capacity) { this->capacity = capacity; }
+	unsigned int getCapacity();
+	void setCapacity(unsigned int);
 
 };
-
-#endif
 

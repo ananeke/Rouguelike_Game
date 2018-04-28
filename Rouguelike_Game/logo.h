@@ -1,23 +1,8 @@
-#ifndef LOGO_H
-#define LOGO_H
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
 
-void DrawImage(std::string img_name)
-{
-	std::fstream image;
-	std::string nameGraphic = "../graphics/";
-	nameGraphic.append(img_name);
-	image.open(nameGraphic);
-	std::string line;
+using namespace std;
 
-	do
-	{
-		std::getline(image, line);
-		std::cout << line << "\n";
-	} while (line != "");
-
-	image.close();
-}
-#endif
+void DrawImage(string);

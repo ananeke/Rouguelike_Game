@@ -1,10 +1,11 @@
-#ifndef ROOM_H
-#define ROOM_H
-#include <iostream>
-#include "actor.h"
+#pragma once
 //#include "item.h"
-#include "hero.h"
+#include "actor.h"
+#include <memory>
 
+using namespace std;
+
+class Actor;
 
 class Room
 {
@@ -13,22 +14,16 @@ private:
 	int positionY;
 public:
 	bool isOpen;
-	Actor* actor;
+	shared_ptr<Actor> actor;
 	//Item item;
 
 	//getters
-	/*int getPositionX() { return positionX; }
-	int getPositionY() { return positionY; }
+	int getPositionX();
+	int getPositionY();
 	//setters
-	void setPositionX(int positionX) { this->positionX = positionX; }
-	void setPositionY(int positionY) { this->positionY = positionY; }*/
+	void setPositionX(int);
+	void setPositionY(int);
 
-	Room()
-	{
-		actor = new Hero("Dida");
-		isOpen = true;
-
-	}
+	Room();
 };
 
-#endif

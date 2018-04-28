@@ -1,5 +1,4 @@
-#ifndef ITEM_H
-#define ITEM_H
+#pragma once
 #include <iostream>
 #include <string>
 #include <array>
@@ -51,5 +50,4 @@ std::cout << v << " ";
 std::cout << std::endl;
 return 0;
 }*/
-#endif
 

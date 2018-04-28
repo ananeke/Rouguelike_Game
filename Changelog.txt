@@ -1,3 +1,10 @@
+Pre-Alpha [v0.0.0.2.28-04-18]
+	- added Move() method of class Map()
+	- fixed issues of compiler code
+	- changed pointers to smart pointers
+	- changed file .gitignore
+	- added displaying Hero on Map
+------------------------------------------------------------------
 Pre-Alpha [v0.0.0.1.25-04-18]
 	- implemented polymorphism for Actor() class
 	- added new class Room()
