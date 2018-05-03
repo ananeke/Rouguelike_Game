@@ -5,6 +5,7 @@
 #include <ctime>
 #include <list>
 #include <vector>
+#include <memory>
 
 #define MAPSIZE 10
 
@@ -19,8 +20,9 @@ public:
 	Map();
 
 	void drawMap();
-	void actorMove(char, Actor*);
-
+	void actorMove(char, shared_ptr<Actor>);		//for Hero
+	void actorMove(shared_ptr<Actor>);				//for Monsters
+	shared_ptr<Actor> getHero();
 
 	/*void UpdateMap(Hero &hero, list<Monster> &list)
 	{

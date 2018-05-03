@@ -1,3 +1,8 @@
+Pre-Alpha [v0.0.0.3.03-05-18]
+	- rebulid method Map::Move() in to Map::actorMove()
+        - fixed moving the Hero on the map[][] 
+        - removed redundant lines
+-----------------------------------------------------------------
 Pre-Alpha [v0.0.0.2.28-04-18]
 	- added Move() method of class Map()
 	- fixed issues of compiler code

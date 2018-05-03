@@ -1,4 +1,5 @@
 #include "room.h"
+#include "hero.h"
 
 int Room::getPositionX() { return positionX; }
 int Room::getPositionY() { return positionY; }
@@ -9,4 +10,6 @@ void Room::setPositionY(int positionY) { this->positionY = positionY; }
 Room::Room()
 {
 	isOpen = true;
+	actor = NULL;
+
 }

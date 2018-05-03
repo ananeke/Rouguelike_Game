@@ -1,6 +1,9 @@
 #include "map.h"
-#include <memory>
 #include "hero.h"
+#include "actortype.h"
+#include <memory>
+#include <algorithm>
+
 
 using namespace std;
 
@@ -13,10 +16,18 @@ Map::Map()
 			temp.push_back(new Room);
 		map.push_back(temp);
 	}
-
-	map[0][0]->actor = make_shared<Hero>("Dida");
-
 }
+
+shared_ptr<Actor> Map::getHero() {
+	for (int i = 0; i < MAPSIZE; ++i) {
+		for (int j = 0; j < MAPSIZE; ++j) {
+			if(map[i][j]->actor != NULL)
+				if (map[i][j]->actor->getActorType() == HERO)
+					return map[i][j]->actor;
+		}
+	}
+}
+
 
 void Map::drawMap()
 {
@@ -25,9 +36,9 @@ void Map::drawMap()
 		for (int j = 0; j < map[i].size(); ++j)
 		{
 			if (map[i][j]->actor != NULL) {
-				if ((map[i][j]->actor->getActorType() == HERO) && (i == map[i][j]->actor->getPositionX()) && (j == map[i][j]->actor->getPositionY()) && (j == map[i].size() - 1))
+				if ((map[i][j]->actor->getActorType() == HERO) && (j == map[i].size() - 1))
 					cout << 'H' << endl;
-				else if (map[i][j]->actor->getActorType() == HERO && i == map[i][j]->actor->getPositionX() && j == map[i][j]->actor->getPositionY())
+				else if (map[i][j]->actor->getActorType() == HERO)
 					cout << 'H';
 				else if (map[i][j]->actor->getActorType() != HERO && j == map[i].size() - 1)
 					cout << 'M' << endl;
@@ -46,23 +57,54 @@ void Map::drawMap()
 	}
 }
 
-void Map::actorMove(char move, Actor* actor)
+//for Hero
+void Map::actorMove(char move, shared_ptr<Actor> actor)
 {
 	if (actor->getActorType() == HERO) {
 		switch (move)
 		{
 		case 'w':
-			actor->setPositionX(actor->getPositionX() - 1);
+			if(actor->getPositionX() - 1 < 0)
+				return;
+			else {
+				actor->setPositionX(actor->getPositionX() - 1);
+				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
+				map[actor->getPositionX() + 1][actor->getPositionY()]->actor = NULL;
+			}
 			break;
 		case 'd':
-			actor->setPositionY(actor->getPositionY() + 1);
+			if (actor->getPositionY() + 1 >= MAPSIZE)
+				return;
+			else {
+				actor->setPositionY(actor->getPositionY() + 1);
+				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
+				map[actor->getPositionX()][actor->getPositionY() - 1]->actor = NULL;
+			}
 			break;
 		case 's':
-			actor->setPositionX(actor->getPositionX() + 1);
+			if (actor->getPositionX() + 1 >= MAPSIZE)
+				return;
+			else {
+				actor->setPositionX(actor->getPositionX() + 1);
+				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
+				map[actor->getPositionX() - 1][actor->getPositionY()]->actor = NULL;
+			}
 			break;
 		case 'a':
-			actor->setPositionY(actor->getPositionY() - 1);
+			if (actor->getPositionY() - 1 < 0)
+				return;
+			else {
+				actor->setPositionY(actor->getPositionY() - 1);
+				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
+				map[actor->getPositionX()][actor->getPositionY() + 1]->actor = NULL;
+			}
 			break;
 		}
 	}
+}
+
+//for Monster
+void Map::actorMove(shared_ptr<Actor>)
+{
+
 }
