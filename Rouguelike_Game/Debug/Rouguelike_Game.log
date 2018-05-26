@@ -1,5 +1,0 @@
-﻿  Rouguelike_Game.cpp
-c:\users\anane\source\repos\rouguelike_game\rouguelike_game\map.h(37): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-c:\users\anane\source\repos\rouguelike_game\rouguelike_game\map.h(39): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-c:\users\anane\source\repos\rouguelike_game\rouguelike_game\rouguelike_game.cpp(23): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  Rouguelike_Game.vcxproj -> C:\Users\anane\source\repos\Rouguelike_Game\Debug\Rouguelike_Game.exe
