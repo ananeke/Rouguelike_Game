@@ -1,3 +1,8 @@
 *.vs
 x64/
 Debug/
+saves/*
+*.sln
+Rouguelike_Game/Debug/
+Rouguelike_Game/x64/
+*.vcxproj*
