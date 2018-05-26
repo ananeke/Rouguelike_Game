@@ -1,3 +1,10 @@
+Pre-Alpha [v0.0.0.4.26-05-18]
+	- added serializations of Hero object
+        - txt option
+        - bin option
+    - added temporary instruction menu
+    - new DrawImage() implementation
+-----------------------------------------------------------------
 Pre-Alpha [v0.0.0.3.03-05-18]
 	- rebulid method Map::Move() in to Map::actorMove()
         - fixed moving the Hero on the map[][] 

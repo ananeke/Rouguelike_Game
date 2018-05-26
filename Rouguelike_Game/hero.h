@@ -1,7 +1,9 @@
 #pragma once
 #include "actor.h"
 #include "actortype.h"
+#include "utilities.h"
 #include <string>
+#include <windows.h>
 
 
 using namespace std;
@@ -13,4 +15,5 @@ public:
 	Hero(string, unsigned int = 20, unsigned int = 5, int = HERO);
 	void Attack();
 	void showBackPack();
+	void showStats();
 };

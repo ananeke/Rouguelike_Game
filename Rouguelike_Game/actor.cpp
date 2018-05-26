@@ -17,5 +17,6 @@ void Actor::setPositionY(int positionY) { this->positionY = positionY; }
 
 void Actor::Attack(){}
 void Actor::showBackPack(){}
+void Actor::showStats(){}
 
 Actor::~Actor() {}

@@ -21,3 +21,16 @@ void Hero::showBackPack()
 {
 
 };
+
+void Hero::showStats()
+{
+	system("cls");
+	cout << endl << endl << endl << endl << endl;
+	cout << "\t\t\t" << getActorName() << " CHARACTER STATS:" << endl;
+	cout << "\t\t" << "Life: " << getLife() << endl;
+	cout << "\t\t" << "Strength: " << getStrength() << endl;
+	cout << "\t\t" << "PositionX: " << getPositionX() << endl;
+	cout << "\t\t" << "PositionY: " << getPositionY() << endl;
+	clearConsoleBuffer();
+	getchar();
+};

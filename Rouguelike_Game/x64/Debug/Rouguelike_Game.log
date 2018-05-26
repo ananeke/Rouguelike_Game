@@ -1,3 +1,9 @@
-﻿  map.cpp
+﻿  Rouguelike_Game.cpp
+  actor.cpp
+  hero.cpp
+  map.cpp
+  room.cpp
+  utilities.cpp
+  Generating Code...
 c:\users\anane\documents\github\rouguelike_game\rouguelike_game\map.cpp(29): warning C4715: 'Map::getHero': not all control paths return a value
   Rouguelike_Game.vcxproj -> C:\Users\anane\Documents\GitHub\Rouguelike_Game\x64\Debug\Rouguelike_Game.exe

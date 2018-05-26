@@ -5,7 +5,7 @@ using namespace std;
 void DrawImage(string img_name)
 {
 	fstream image;
-	string nameGraphic = "../graphics/";
+	string nameGraphic = "graphics/";
 	nameGraphic.append(img_name);
 	image.open(nameGraphic);
 	string line;
