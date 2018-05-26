@@ -1,7 +1,7 @@
 *.vs
 x64/
 Debug/
-Rouguelike_Game/saves/
+Rouguelike_Game/saves/*
 *.sln
 Rouguelike_Game/Debug/
 Rouguelike_Game/x64/
