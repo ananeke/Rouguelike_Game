@@ -37,6 +37,7 @@ public:
 	virtual void Attack() = 0;
 	virtual void showBackPack() = 0;
 	virtual void showStats() = 0;
+	virtual void changeName() = 0; 
 
 	virtual ~Actor() = 0;
 };

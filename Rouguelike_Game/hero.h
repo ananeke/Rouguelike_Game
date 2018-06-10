@@ -12,8 +12,9 @@ class Hero : public Actor
 {
 public:
 
-	Hero(string, unsigned int = 20, unsigned int = 5, int = HERO);
+	Hero(string = "Dida", unsigned int = 20, unsigned int = 5, int = HERO);
 	void Attack();
 	void showBackPack();
 	void showStats();
+	void changeName();
 };
