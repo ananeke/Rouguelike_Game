@@ -1,3 +1,9 @@
+Pre-Alpha [v0.0.0.6.11-06-18]
+	- added randomization of size map
+    - added randomization of opennig Room()
+        - open Room() is displaying as '_'
+        - closed Room() is displaying as '#'
+-----------------------------------------------------------------
 Pre-Alpha [v0.0.0.5.10-06-18]
 	- added naming mechanism of game Hero by user
       with handling exceptions

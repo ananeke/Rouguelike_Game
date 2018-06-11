@@ -6,8 +6,12 @@
 #include <list>
 #include <vector>
 #include <memory>
+#include "randomizer.h"
 
-#define MAPSIZE 10
+
+
+
+
 
 using namespace std;
 class Room;
@@ -16,7 +20,7 @@ class Map
 {
 public:
 	vector<vector<Room*>> map;
-
+	int MAPSIZE;
 	Map();
 
 	void drawMap();

@@ -9,6 +9,7 @@ using namespace std;
 
 Map::Map()
 {
+	MAPSIZE = Randomizer::getRandomMapSize(8, 16);
 	for (int i = 0; i < MAPSIZE; ++i)
 	{
 		vector<Room*> temp;
@@ -35,21 +36,28 @@ void Map::drawMap()
 	{
 		for (int j = 0; j < map[i].size(); ++j)
 		{
-			if (map[i][j]->actor != NULL) {
-				if ((map[i][j]->actor->getActorType() == HERO) && (j == map[i].size() - 1))
-					cout << 'H' << endl;
-				else if (map[i][j]->actor->getActorType() == HERO)
-					cout << 'H';
-				else if (map[i][j]->actor->getActorType() != HERO && j == map[i].size() - 1)
-					cout << 'M' << endl;
-				else if (map[i][j]->actor->getActorType() != HERO)
-					cout << 'M';
+			if (!map[i][j]->isOpen && j == map[i].size() - 1) {
+				cout << '#' << endl;
 			}
+			else if (!map[i][j]->isOpen)
+				cout << '#';
 			else {
-				if (map[i][j]->isOpen && j == map[i].size() - 1)
-					cout << '_' << '|' << endl;
-				else if (map[i][j]->isOpen)
-					cout << '_';
+				if (map[i][j]->actor != NULL) {
+					if ((map[i][j]->actor->getActorType() == HERO) && (j == map[i].size() - 1))
+						cout << 'H' << endl;
+					else if (map[i][j]->actor->getActorType() == HERO)
+						cout << 'H';
+					else if (map[i][j]->actor->getActorType() != HERO && j == map[i].size() - 1)
+						cout << 'M' << endl;
+					else if (map[i][j]->actor->getActorType() != HERO)
+						cout << 'M';
+				}
+				else {
+					if (map[i][j]->isOpen && j == map[i].size() - 1)
+						cout << '_' << '|' << endl;
+					else if (map[i][j]->isOpen)
+						cout << '_';
+				}
 			}
 			
 			
@@ -64,7 +72,7 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 		switch (move)
 		{
 		case 'w':
-			if(actor->getPositionX() - 1 < 0)
+			if(actor->getPositionX() - 1 < 0 || map[actor->getPositionX() - 1][actor->getPositionY()]->isOpen == 0)
 				return;
 			else {
 				actor->setPositionX(actor->getPositionX() - 1);
@@ -73,7 +81,7 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			}
 			break;
 		case 'd':
-			if (actor->getPositionY() + 1 >= MAPSIZE)
+			if (actor->getPositionY() + 1 >= MAPSIZE || map[actor->getPositionX()][actor->getPositionY() + 1]->isOpen == 0)
 				return;
 			else {
 				actor->setPositionY(actor->getPositionY() + 1);
@@ -82,7 +90,7 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			}
 			break;
 		case 's':
-			if (actor->getPositionX() + 1 >= MAPSIZE)
+			if (actor->getPositionX() + 1 >= MAPSIZE || map[actor->getPositionX() + 1][actor->getPositionY()]->isOpen == 0)
 				return;
 			else {
 				actor->setPositionX(actor->getPositionX() + 1);
@@ -91,7 +99,7 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			}
 			break;
 		case 'a':
-			if (actor->getPositionY() - 1 < 0)
+			if (actor->getPositionY() - 1 < 0 || map[actor->getPositionX()][actor->getPositionY() - 1]->isOpen == 0)
 				return;
 			else {
 				actor->setPositionY(actor->getPositionY() - 1);
