@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 
-int Randomizer::getRandomMapSize(int min, int max) {
+int Randomizer::getRandomNumber(int min, int max) {
 	
 	return rand() % (max - min + 1) + min;
 }

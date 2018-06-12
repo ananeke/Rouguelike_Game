@@ -1,18 +1,20 @@
 #pragma once
 
-#include <iostream>
 #include <list>
-//#include "item.h"
+#include "item.h"
 
 using namespace std;
 
 class BackPack
 {
-	unsigned int capacity;
 public:
-	//list<Item> itemList;
-	unsigned int getCapacity();
-	void setCapacity(unsigned int);
+	list<Item> itemList;
+	unsigned int capacity;
 
+	void addItem();
+	void removeItem(Item);
+	void compareItems(Item);
+	
+	BackPack();
 };
 

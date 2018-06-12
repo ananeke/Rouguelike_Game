@@ -9,7 +9,7 @@ using namespace std;
 
 Map::Map()
 {
-	MAPSIZE = Randomizer::getRandomMapSize(8, 16);
+	MAPSIZE = Randomizer::getRandomNumber(8, 16);
 	for (int i = 0; i < MAPSIZE; ++i)
 	{
 		vector<Room*> temp;
@@ -36,10 +36,9 @@ void Map::drawMap()
 	{
 		for (int j = 0; j < map[i].size(); ++j)
 		{
-			if (!map[i][j]->isOpen && j == map[i].size() - 1) {
-				cout << '#' << endl;
-			}
-			else if (!map[i][j]->isOpen)
+			if (map[i][j]->isOpen == 1 && j == map[i].size() - 1)
+				cout << '#' << '|' << endl;
+			else if (map[i][j]->isOpen == 1)
 				cout << '#';
 			else {
 				if (map[i][j]->actor != NULL) {
@@ -53,7 +52,11 @@ void Map::drawMap()
 						cout << 'M';
 				}
 				else {
-					if (map[i][j]->isOpen && j == map[i].size() - 1)
+					if (map[i][j]->isExit && j == map[i].size() - 1)
+						cout << 'E' << '|' << endl;
+					else if (map[i][j]->isExit)
+						cout << 'E';
+					else if (j == map[i].size() - 1)
 						cout << '_' << '|' << endl;
 					else if (map[i][j]->isOpen)
 						cout << '_';

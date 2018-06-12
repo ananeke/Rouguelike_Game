@@ -1,53 +1,21 @@
 #pragma once
-#include <iostream>
+#include "itemtype.h"
 #include <string>
-#include <array>
-#include <algorithm>
-#include <ctime>
 
 using namespace std;
 
-array<string, 6> thing{ "Sword","Armor","Boots","Ring","Shield","Gloves" };
-array<string, 3> good_prefix{ "Good","Magic","Legendary" };
-array<string, 3> bad_prefix{ "Bad","Broken","Cursed" };
-
 class Item
 {
-	string name;
-
 public:
-	Item()
-	{
-		//randomowe wybieranie nagrody
-		int index = rand() % 6;
-		this->name = thing[index];
-	}
+	string type;
+	string goodPrefix;
+	string badPrefix;
+	string fullName;
+
+	int toStrength;
+	int toLife;
+
+	Item();
+	bool operator == (const Item& i) const { return fullName == i.fullName; }
+	bool operator != (const Item& i) const { return !operator == (i);  }
 };
-
-class Precious : public Item
-{
-	string name_good_prefix;
-
-public:
-	Precious()
-	{
-		srand(time(NULL));
-		int index = rand() % 3;
-		this->name_good_prefix = good_prefix[index];
-		std::cout << name_good_prefix << std::endl;
-	}
-};
-
-
-
-/*int main(int argc, char const *argv[]) {
-
-Precious S;
-//S.Print();
-
-for(const auto &v: thing)
-std::cout << v << " ";
-std::cout << std::endl;
-return 0;
-}*/
-

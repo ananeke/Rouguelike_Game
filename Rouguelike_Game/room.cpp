@@ -9,7 +9,7 @@ void Room::setPositionY(int positionY) { this->positionY = positionY; }
 
 Room::Room()
 {
-	isOpen = Randomizer::getRandomMapSize(0, 1);
+	isOpen = Randomizer::getRandomNumber(1, 10);
 	actor = NULL;
 
 }

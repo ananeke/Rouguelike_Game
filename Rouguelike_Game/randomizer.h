@@ -2,6 +2,6 @@
 
 class Randomizer {
 public:
-	static int getRandomMapSize(int ,int);
+	static int getRandomNumber(int ,int);
 
 };

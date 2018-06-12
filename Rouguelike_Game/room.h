@@ -13,7 +13,8 @@ private:
 	int positionX;
 	int positionY;
 public:
-	bool isOpen;
+	int isOpen;
+	bool isExit;
 	shared_ptr<Actor> actor;
 	//Item item;
 
