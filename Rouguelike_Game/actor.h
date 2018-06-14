@@ -19,6 +19,7 @@ private:
 public:	
 	bool isExists;
 	BackPack backPack;
+	int score;
 
 	unsigned int getLife();
 	unsigned int getStrength();

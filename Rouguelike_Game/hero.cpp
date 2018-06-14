@@ -10,6 +10,8 @@ Hero::Hero(string actorName, unsigned int life, unsigned int strength, int actor
 	setLife(life);
 	setStrength(strength);
 	setActorType(actorType);
+	score = 0;
+	dungeonLevel = 1;
 }
 
 void Hero::Attack()

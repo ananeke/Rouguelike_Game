@@ -27,6 +27,7 @@ public:
 	void actorMove(char, shared_ptr<Actor>);		//for Hero
 	void actorMove(shared_ptr<Actor>);				//for Monsters
 	shared_ptr<Actor> getHero();
+	shared_ptr<Actor> getMonster();
 
 	/*void UpdateMap(Hero &hero, list<Monster> &list)
 	{

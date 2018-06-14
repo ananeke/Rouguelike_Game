@@ -1,8 +1,8 @@
-                INSTRUCTIONS:
-        w - go up          i - save game in .txt
-        s - go down        o - load game form .txt
-        a - go left        k - save game in .bin
-        d - go right       l - load game form .bin
+                INSTRUCTIONS:                                          MAP LEGEND:
+        w - go up          i - save game in .txt                   H - Hero (player)
+        s - go down        o - load game form .txt                 M - Monsters
+        a - go left        k - save game in .bin                   E - Exit to next dungeon
+        d - go right       l - load game form .bin                 # - Closed Room
         ------------------------
         c - show hero statistics
         [enter] - accept choice

@@ -9,7 +9,7 @@ using namespace std;
 
 Map::Map()
 {
-	MAPSIZE = Randomizer::getRandomNumber(8, 16);
+	MAPSIZE = Randomizer::getRandomNumber(10, 18);
 	for (int i = 0; i < MAPSIZE; ++i)
 	{
 		vector<Room*> temp;
@@ -24,6 +24,16 @@ shared_ptr<Actor> Map::getHero() {
 		for (int j = 0; j < MAPSIZE; ++j) {
 			if(map[i][j]->actor != NULL)
 				if (map[i][j]->actor->getActorType() == HERO)
+					return map[i][j]->actor;
+		}
+	}
+}
+
+shared_ptr<Actor> Map::getMonster() {
+	for (int i = 0; i < MAPSIZE; ++i) {
+		for (int j = 0; j < MAPSIZE; ++j) {
+			if (map[i][j]->actor != NULL)
+				if (map[i][j]->actor->getActorType() != HERO)
 					return map[i][j]->actor;
 		}
 	}
@@ -62,8 +72,6 @@ void Map::drawMap()
 						cout << '_';
 				}
 			}
-			
-			
 		}
 	}
 }
@@ -75,36 +83,56 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 		switch (move)
 		{
 		case 'w':
-			if(actor->getPositionX() - 1 < 0 || map[actor->getPositionX() - 1][actor->getPositionY()]->isOpen == 0)
+			if(actor->getPositionX() - 1 < 0 || map[actor->getPositionX() - 1][actor->getPositionY()]->isOpen == 1)
 				return;
 			else {
+				if (map[actor->getPositionX() - 1][actor->getPositionY()]->actor != NULL)
+					actor->score += 5;
+				else
+					actor->score -= 1;
+
 				actor->setPositionX(actor->getPositionX() - 1);
 				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
 				map[actor->getPositionX() + 1][actor->getPositionY()]->actor = NULL;
 			}
 			break;
 		case 'd':
-			if (actor->getPositionY() + 1 >= MAPSIZE || map[actor->getPositionX()][actor->getPositionY() + 1]->isOpen == 0)
+			if (actor->getPositionY() + 1 >= MAPSIZE || map[actor->getPositionX()][actor->getPositionY() + 1]->isOpen == 1)
 				return;
 			else {
+				if (map[actor->getPositionX()][actor->getPositionY() + 1]->actor != NULL)
+					actor->score += 5;
+				else
+					actor->score -= 1;
+
 				actor->setPositionY(actor->getPositionY() + 1);
 				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
 				map[actor->getPositionX()][actor->getPositionY() - 1]->actor = NULL;
 			}
 			break;
 		case 's':
-			if (actor->getPositionX() + 1 >= MAPSIZE || map[actor->getPositionX() + 1][actor->getPositionY()]->isOpen == 0)
+			if (actor->getPositionX() + 1 >= MAPSIZE || map[actor->getPositionX() + 1][actor->getPositionY()]->isOpen == 1)
 				return;
 			else {
+				if (map[actor->getPositionX() + 1][actor->getPositionY()]->actor != NULL)
+					actor->score += 5;
+				else
+					actor->score -= 1;
+
 				actor->setPositionX(actor->getPositionX() + 1);
 				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
 				map[actor->getPositionX() - 1][actor->getPositionY()]->actor = NULL;
 			}
 			break;
 		case 'a':
-			if (actor->getPositionY() - 1 < 0 || map[actor->getPositionX()][actor->getPositionY() - 1]->isOpen == 0)
+			if (actor->getPositionY() - 1 < 0 || map[actor->getPositionX()][actor->getPositionY() - 1]->isOpen == 1)
 				return;
 			else {
+				if (map[actor->getPositionX()][actor->getPositionY() - 1]->actor != NULL)
+					actor->score += 5;
+				else
+					actor->score -= 1;
+
 				actor->setPositionY(actor->getPositionY() - 1);
 				map[actor->getPositionX()][actor->getPositionY()]->actor = actor;
 				map[actor->getPositionX()][actor->getPositionY() + 1]->actor = NULL;
