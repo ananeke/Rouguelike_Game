@@ -9,6 +9,4 @@ Item::Item()
 		this->goodPrefix = itemtype::goodPrefix[Randomizer::getRandomNumber(0, 2)];
 	else
 		this->badPrefix = itemtype::badPrefix[Randomizer::getRandomNumber(0, 2)];
-
-
 }

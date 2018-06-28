@@ -1,12 +1,10 @@
 #pragma once
-//#include "item.h"
 #include "actor.h"
 #include <memory>
 
 using namespace std;
 
 class Actor;
-
 class Room
 {
 private:
@@ -16,7 +14,6 @@ public:
 	int isOpen;
 	bool isExit;
 	shared_ptr<Actor> actor;
-	//Item item;
 
 	//getters
 	int getPositionX();
@@ -27,4 +24,3 @@ public:
 
 	Room();
 };
-

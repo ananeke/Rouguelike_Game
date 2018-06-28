@@ -19,3 +19,4 @@ bool savingGame(const unique_ptr<Map>&, bool);
 bool loadGame(unique_ptr<Map>&, bool);
 void clearConsoleBuffer();
 void newGame(shared_ptr<Hero>&);
+void gameOver(shared_ptr<Actor>&);

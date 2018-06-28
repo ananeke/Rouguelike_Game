@@ -2,7 +2,7 @@
 #include "logo.h"
 #include <string>
 
-Hero::Hero(string actorName, unsigned int life, unsigned int strength, int actorType)
+Hero::Hero(string actorName, int life, int strength, int actorType)
 {
 	setActorName(actorName);
 	setPositionX(0);
@@ -13,13 +13,6 @@ Hero::Hero(string actorName, unsigned int life, unsigned int strength, int actor
 	score = 0;
 	dungeonLevel = 1;
 }
-
-void Hero::Attack()
-{
-
-};
-
-
 
 void Hero::showBackPack()
 {
@@ -67,3 +60,5 @@ void Hero::changeName() {
 	}
 	while (error >= 2);
 };
+
+void Hero::Attack() {}

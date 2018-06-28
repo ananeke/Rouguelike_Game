@@ -1,0 +1,21 @@
+                Rules of Game:
+            
+    The map consists of open and closed rooms.
+    You can enter the open rooms, our HERO moves around these rooms.
+    One of the rooms is a transition to the next level marked with the symbol E.
+    
+    The goal of the game is to get as many points as possible 
+    and reach the end of level 3 of the dungeon.
+    Points are added by defeating monsters and moving to the next level of the dungeon,
+    and deducted for each move, -1 for each move.
+    
+    The symbol H is marked HERO (player).
+    
+    Symbol M are marked monsters that can be defeated in battle,
+    and as a reward the player will receive 15 points.
+    Losing the fight ends the game.
+    
+    To go to the game press ENTER.
+    
+    
+    Author: Dorota Przyjemska                           Szczecin, 30.06.2018

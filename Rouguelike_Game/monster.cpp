@@ -2,7 +2,7 @@
 #include "logo.h"
 #include <string>
 
-Monster::Monster(unsigned int life, unsigned int strength, int actorType)
+Monster::Monster(int life, int strength, int actorType)
 {
 	setPositionX(0);
 	setPositionY(0);
@@ -10,13 +10,6 @@ Monster::Monster(unsigned int life, unsigned int strength, int actorType)
 	setStrength(strength);
 	setActorType(actorType);
 }
-
-void Monster::Attack()
-{
-
-};
-
-
 
 void Monster::showBackPack()
 {
@@ -37,3 +30,4 @@ void Monster::showStats()
 };
 
 void Monster::changeName() {}
+void Monster::Attack() {}

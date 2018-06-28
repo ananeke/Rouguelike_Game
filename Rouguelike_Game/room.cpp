@@ -11,5 +11,4 @@ Room::Room()
 {
 	isOpen = Randomizer::getRandomNumber(1, 10);
 	actor = NULL;
-
 }

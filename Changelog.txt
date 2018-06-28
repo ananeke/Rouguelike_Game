@@ -1,4 +1,13 @@
-Alpha [v0.0.0.8.14-06-18]
+Beta [v0.1.1.7.28-06-18]
+    - first Beta release
+	- added Battle mode 
+    - game display High Score at end of the game 
+    - game ends when Hero dies or Hero reach level 4 of dungeon
+    - game is translated to english
+    - added Intro
+    - increased Monster density
+-----------------------------------------------------------------
+Alpha [v0.0.1.7.14-06-18]
     - first Alfa release
 	- added class Monster
         - Monsters appear on map

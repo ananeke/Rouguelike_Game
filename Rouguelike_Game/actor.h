@@ -3,14 +3,13 @@
 #include "backpack.h"
 #include "map.h"
 
-
 using namespace std;
 
 class Actor
 {
 private:
-	unsigned int life;
-	unsigned int strength;
+	int life;
+	int strength;
 	string actorName;
 	int actorType;
 	int positionX;
@@ -21,15 +20,15 @@ public:
 	BackPack backPack;
 	int score;
 
-	unsigned int getLife();
-	unsigned int getStrength();
+	int getLife();
+	int getStrength();
 	string getActorName();
 	int getActorType();
 	int getPositionX();
 	int getPositionY();
 
-	void setLife(unsigned int);
-	void setStrength(unsigned int);
+	void setLife(int);
+	void setStrength(int);
 	void setActorName(string);
 	void setActorType(int);
 	void setPositionX(int);

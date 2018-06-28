@@ -6,14 +6,12 @@
 #include <string>
 #include <windows.h>
 
-
 using namespace std;
 
 class Monster : public Actor
 {
 public:
-
-	Monster(unsigned int = 10, unsigned int = 3, int = Randomizer::getRandomNumber(1, 4));
+	Monster(int = 10, int = 3, int = Randomizer::getRandomNumber(1, 4));
 	void Attack();
 	void showBackPack();
 	void showStats();

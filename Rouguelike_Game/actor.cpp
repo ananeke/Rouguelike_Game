@@ -1,15 +1,15 @@
 #include "actor.h"
 #include <string>
 
-unsigned int Actor::getLife() { return life; }
-unsigned int Actor::getStrength() { return strength; }
+int Actor::getLife() { return life; }
+int Actor::getStrength() { return strength; }
 string Actor::getActorName() { return actorName; }
 int Actor::getActorType() { return actorType; }
 int Actor::getPositionX() { return positionX; }
 int Actor::getPositionY() { return positionY; }
 
-void Actor::setLife(unsigned int life) { this->life = life; }
-void Actor::setStrength(unsigned int strength) { this->strength = strength; }
+void Actor::setLife(int life) { this->life = life; }
+void Actor::setStrength(int strength) { this->strength = strength; }
 void Actor::setActorName(string actorName) { this->actorName = actorName; }
 void Actor::setActorType(int actorType) { this->actorType = actorType; }
 void Actor::setPositionX(int positionX) { this->positionX = positionX; }

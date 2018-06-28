@@ -1,87 +1,82 @@
+#include "actor.h"
+#include "logo.h"
+#include "map.h"
+#include "monster.h"
+#include "utilities.h"
 #include <iostream>
 #include <windows.h>
 #include <ctime>
 #include <list>
-#include "actor.h"
-#include "logo.h"
-#include "map.h"
 
-void StartBattle(Hero &hero, std::list<Monster> &list)
+void startBattle(shared_ptr<Actor> hero, shared_ptr<Actor> monster)
 {
 	bool win = false;
 	while (!win)
 	{
 		system("cls");
-		DrawImage("Monster.txt");
-		for (std::list<Monster>::iterator var = list.begin(); var != list.end(); ++var)
+		DrawImage("monster.txt");
+		if ((monster->getLife() > 0) | (hero->getLife() > 0))
 		{
-			if ((hero.position[0] == var->position[0]) && (hero.position[1] == var->position[1]))
+			cout << "\n Monster life: " << monster->getLife() << endl << endl;
+			cout << "\n Hero life: " << hero->getLife() << endl << endl;
+			cout << " Attack options: " << endl;
+			cout << "\t\t f - normal attack " << hero->getStrength() << " points of damage\n";
+			cout << "\t\t g - mega attack " << hero->getStrength() * 2 <<" points of damage (chance 30%)\n";
+			char dec;
+			cout << " Your choice: \n";
+			cin >> dec;
+
+			switch (dec)
 			{
-				if ((var->hp > 0) | (hero.hp >0))
+			case 'f':
+				if (monster->getLife() > 0)
 				{
-					std::cout << "\n Pozostale zycie potwora: " << var->hp << std::endl << std::endl;
-					std::cout << "\n Pozostale zycie bohatera: " << hero.hp << std::endl << std::endl;
-					std::cout << " Mozliwosci ataku: " << std::endl;
-					std::cout << "\t\t f - zwykly atak za 4 punkty obrazen\n";
-					std::cout << "\t\t g - mega atak za 10 punktow obrazen (szansa 30%)\n";
-					char dec;
-					std::cout << " Twoj wybor: \n";
-					std::cin >> dec;
-
-					switch (dec)
-					{
-					case 'f':
-						if (var->hp > 0)
-						{
-							var->hp -= 4;
-							hero.hp -= 3;
-							std::cout << "\n Bijesz potwora za 4 punkty, a potwor ciebie za 3 punkty\n";
-							Sleep(2000);
-						}
-						else
-						{
-							win = true;
-							list.erase(var);
-						}
-						break;
-					case 'g':
-						if (rand() % 3 == 1)
-						{
-							win = true;
-							var->hp = 0;
-						}
-						else
-						{
-							std::cout << "\n\n nie zabijasz potwora!\n";
-							Sleep(2000);
-						}
-						break;
-						//return;
-					default:
-						std::cout << "Z³y klawisz!!!\n Za kare potwor bije cie za 5 punktow!\n";
-						hero.hp -= 5;
-						break;
-						//return;
-					}
+					monster->setLife(monster->getLife() - hero->getStrength());
+					hero->setLife(hero->getLife() - monster->getStrength());
+					cout << "\n Hero beat the Monster for "<< hero->getStrength() <<" points and Monster hit the Hero for " << monster->getStrength() << " points\n";
+					Sleep(3000);
 				}
-				if (var->hp <= 0)
+				break;
+			case 'g':
+				if (rand() % 3 == 1)
 				{
-					system("cls");
-					list.erase(var);
-					DrawImage("Hero.txt");
-					std::cout << "\n\n Zabiles potwora!\n";
-					Sleep(2000);
-					return;
+					monster->setLife(monster->getLife() - hero->getStrength() * 2);
+					hero->setLife(hero->getLife() - monster->getStrength());
+					cout << "\n Hero beat the Monster for " << hero->getStrength() * 2 << " points and Monster hit the Hero for " << monster->getStrength() << " points\n";
+					Sleep(3000);
 				}
-				if (hero.hp <= 0)
+				else
 				{
-					system("cls");
-					DrawImage("Monster_Wins.txt");
-					Sleep(2000);
-					return;
+					cout << "\n\n Hero don't hit the Monster!\n";
+					hero->setLife(hero->getLife() - monster->getStrength());
+					cout << "\n Monster hit the Hero for " << monster->getStrength() << " points\n";
+					Sleep(3000);
 				}
-
+				break;
+				//return;
+			default:
+				cout << "Wrong key !!! \nFor a punishment, the monster beats Hero for 5 points!\n";
+				Sleep(3000);
+				hero->setLife(hero->getLife() - 5);
+				break;
+				//return;
 			}
+		}
+		if (monster->getLife() <= 0)
+		{
+			system("cls");
+			DrawImage("hero.txt");
+			cout << "\n\n Hero kills the Monster!\n";
+			Sleep(3000);
+			return;
+		}
+		if (hero->getLife() <= 0)
+		{
+			system("cls");
+			DrawImage("monster_wins.txt");
+			Sleep(2000);
+			gameOver(hero);
+			exit(666);
 		}
 	}
 }

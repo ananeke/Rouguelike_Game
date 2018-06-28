@@ -6,15 +6,12 @@
 #include <string>
 #include <windows.h>
 
-
 using namespace std;
 
 class Hero : public Actor
 {
 public:
-
-
-	Hero(string = "Dida", unsigned int = 20, unsigned int = 5, int = HERO);
+	Hero(string = "Dida", int = 20, int = 5, int = HERO);
 	void Attack();
 	void showBackPack();
 	void showStats();

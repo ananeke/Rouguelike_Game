@@ -1,7 +1,6 @@
 #pragma once
-
-#include <list>
 #include "item.h"
+#include <list>
 
 using namespace std;
 
@@ -17,4 +16,3 @@ public:
 	
 	BackPack();
 };
-

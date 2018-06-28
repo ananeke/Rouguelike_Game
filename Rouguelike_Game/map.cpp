@@ -1,9 +1,9 @@
 #include "map.h"
 #include "hero.h"
 #include "actortype.h"
+#include "battle.h"
 #include <memory>
 #include <algorithm>
-
 
 using namespace std;
 
@@ -38,7 +38,6 @@ shared_ptr<Actor> Map::getMonster() {
 		}
 	}
 }
-
 
 void Map::drawMap()
 {
@@ -86,8 +85,10 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			if(actor->getPositionX() - 1 < 0 || map[actor->getPositionX() - 1][actor->getPositionY()]->isOpen == 1)
 				return;
 			else {
-				if (map[actor->getPositionX() - 1][actor->getPositionY()]->actor != NULL)
-					actor->score += 5;
+				if (map[actor->getPositionX() - 1][actor->getPositionY()]->actor != NULL) {
+					startBattle(getHero(), map[actor->getPositionX() - 1][actor->getPositionY()]->actor);
+					actor->score += 15;
+				}
 				else
 					actor->score -= 1;
 
@@ -100,8 +101,11 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			if (actor->getPositionY() + 1 >= MAPSIZE || map[actor->getPositionX()][actor->getPositionY() + 1]->isOpen == 1)
 				return;
 			else {
-				if (map[actor->getPositionX()][actor->getPositionY() + 1]->actor != NULL)
-					actor->score += 5;
+				if (map[actor->getPositionX()][actor->getPositionY() + 1]->actor != NULL) {
+					startBattle(getHero(), map[actor->getPositionX()][actor->getPositionY() + 1]->actor);
+					actor->score += 15;
+				}
+					
 				else
 					actor->score -= 1;
 
@@ -114,8 +118,10 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			if (actor->getPositionX() + 1 >= MAPSIZE || map[actor->getPositionX() + 1][actor->getPositionY()]->isOpen == 1)
 				return;
 			else {
-				if (map[actor->getPositionX() + 1][actor->getPositionY()]->actor != NULL)
-					actor->score += 5;
+				if (map[actor->getPositionX() + 1][actor->getPositionY()]->actor != NULL) {
+					startBattle(getHero(), map[actor->getPositionX() + 1][actor->getPositionY()]->actor);
+					actor->score += 15;
+				}
 				else
 					actor->score -= 1;
 
@@ -128,8 +134,10 @@ void Map::actorMove(char move, shared_ptr<Actor> actor)
 			if (actor->getPositionY() - 1 < 0 || map[actor->getPositionX()][actor->getPositionY() - 1]->isOpen == 1)
 				return;
 			else {
-				if (map[actor->getPositionX()][actor->getPositionY() - 1]->actor != NULL)
-					actor->score += 5;
+				if (map[actor->getPositionX()][actor->getPositionY() - 1]->actor != NULL) {
+					startBattle(getHero(), map[actor->getPositionX()][actor->getPositionY() - 1]->actor);
+					actor->score += 15;
+				}
 				else
 					actor->score -= 1;
 
